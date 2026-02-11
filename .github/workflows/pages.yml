@@ -1,0 +1,78 @@
+name: Deploy docs (GitHub Pages)
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+
+      # Checkout the package repos into a temporary folder
+      - name: Checkout owl-data
+        uses: actions/checkout@v4
+        with:
+          repository: OpenWaterLab/owl-data
+          path: _repos/owl-data
+
+      - name: Checkout owl-twin
+        uses: actions/checkout@v4
+        with:
+          repository: OpenWaterLab/owl-twin
+          path: _repos/owl-twin
+
+      - name: Checkout owl-sim
+        uses: actions/checkout@v4
+        with:
+          repository: OpenWaterLab/owl-sim
+          path: _repos/owl-sim
+
+      # Copy docs from each repo into this site's docs/ tree
+      - name: Sync package docs into site
+        run: |
+          mkdir -p docs/owl-data docs/owl-twin docs/owl-sim
+          rsync -av --delete _repos/owl-data/docs/ docs/owl-data/
+          rsync -av --delete _repos/owl-twin/docs/ docs/owl-twin/
+          rsync -av --delete _repos/owl-sim/docs/ docs/owl-sim/
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install MkDocs
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs-material
+
+      - name: Build site
+        run: mkdocs build --strict
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
