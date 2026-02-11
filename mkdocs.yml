@@ -1,0 +1,34 @@
+site_name: OpenWaterLab (OWL)
+site_description: Free and open-source tools for water system modelling, simulation, and analysis
+site_url: https://openwaterlab.github.io/
+repo_url: https://github.com/OpenWaterLab/openwaterlab.github.io
+repo_name: OpenWaterLab/openwaterlab.github.io
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  - attr_list
+
+nav:
+  - Home: index.md
+  - OpenWaterLab(OWL):
+      - Overview: overview.md
+      - Contributing: contributing.md
+      - License: license.md
+  - Packages:
+      - owl-data: owl-data/index.md
+      - owl-twin: owl-twin/index.md
+      - owl-sim: owl-sim/index.md
