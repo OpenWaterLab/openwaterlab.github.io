@@ -2,11 +2,11 @@
   <img src="assets/OWL.svg" alt="owl logo" width="200"/>
 </p>
 
-<h1 align="center">OpenWaterLab (OWL)</h1>
+<h1 align="center">Open Water Lab (OWL)</h1>
 <p align="center">
 </p>
 
-OpenWaterLab (OWL) is founded, developed and maintained by the **[BIOMATH](https://biomath.ugent.be/)** research group at Ghent University and the wider open-source water research community. It is a free and open-source ecosystem of tools for water system modelling, simulation, analysis, and digital twin development. Contributions of all kinds are welcome and appreciated.
+Open Water Lab (OWL) is founded, developed and maintained by the **[BIOMATH](https://biomath.ugent.be/)** research group at Ghent University and the wider open-source water research community. It is a free and open-source ecosystem of tools for water system modelling, simulation, analysis, and digital twin development. Contributions of all kinds are welcome and appreciated.
 
 
 ## Packages
