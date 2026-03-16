@@ -19,29 +19,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout website repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Checkout the package repos into a temporary folder
       - name: Checkout owl-data
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: OpenWaterLab/owl-data
           path: _repos/owl-data
 
       - name: Checkout owl-twin
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: OpenWaterLab/owl-twin
           path: _repos/owl-twin
 
       - name: Checkout owl-wrrf
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: OpenWaterLab/owl-wrrf
           path: _repos/owl-wrrf
       
       - name: Checkout owl-ont
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: OpenWaterLab/owl-ont
           path: _repos/owl-ont
@@ -55,7 +55,7 @@ jobs:
           rsync -av --delete _repos/owl-ont/docs/ docs/packages/owl-ont/
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
