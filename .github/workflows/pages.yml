@@ -34,19 +34,26 @@ jobs:
           repository: OpenWaterLab/owl-twin
           path: _repos/owl-twin
 
-      - name: Checkout owl-sim
+      - name: Checkout owl-wrrf
         uses: actions/checkout@v4
         with:
-          repository: OpenWaterLab/owl-sim
-          path: _repos/owl-sim
+          repository: OpenWaterLab/owl-wrrf
+          path: _repos/owl-wrrf
+      
+      - name: Checkout owl-ont
+        uses: actions/checkout@v4
+        with:
+          repository: OpenWaterLab/owl-ont
+          path: _repos/owl-ont
 
       # Copy docs from each repo into this site's docs/ tree
       - name: Sync package docs into site
         run: |
-          mkdir -p docs/owl-data docs/owl-twin docs/owl-sim
-          rsync -av --delete _repos/owl-data/docs/ docs/owl-data/
-          rsync -av --delete _repos/owl-twin/docs/ docs/owl-twin/
-          rsync -av --delete _repos/owl-sim/docs/ docs/owl-sim/
+#          mkdir -p docs/owl-data docs/owl-twin docs/owl-sim
+          rsync -av --delete _repos/owl-data/docs/ docs/packages/owl-data/
+          rsync -av --delete _repos/owl-twin/docs/ docs/packages/owl-twin/
+          rsync -av --delete _repos/owl-wrrf/docs/ docs/packages/owl-wrrf/
+          rsync -av --delete _repos/owl-ont/docs/ docs/packages/owl-ont/
 
       - name: Set up Python
         uses: actions/setup-python@v5

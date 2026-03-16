@@ -6,6 +6,7 @@ repo_name: OpenWaterLab/openwaterlab.github.io
 
 theme:
   name: material
+  logo: assets/OWL.svg
   features:
     - navigation.instant
     - navigation.tracking
@@ -18,14 +19,14 @@ theme:
       primary: blue
       accent: teal
       toggle:
-        icon: material/weather-night
+        icon: material/toggle-switch
         name: Switch to dark mode
 
     - scheme: slate
       primary: blue
       accent: teal
       toggle:
-        icon: material/weather-sunny
+        icon: material/toggle-switch-off-outline
         name: Switch to light mode
 
 markdown_extensions:
@@ -39,10 +40,12 @@ markdown_extensions:
 nav:
   - Home: index.md
   - OpenWaterLab(OWL):
-      - Overview: overview.md
-      - Contributing: contributing.md
-      - License: license.md
+  	  - About: about/index.md
+      - Overview: about/overview.md
+      - Contributing: about/contributing.md
+      - License: about/license.md
   - Packages:
-      - owl-data: owl-data/index.md
-      - owl-twin: owl-twin/index.md
-      - owl-sim: owl-sim/index.md
+      - owl-data: packages/owl-data/index.md
+      - owl-twin: packages/owl-twin/index.md
+      - owl-wrrf: packages/owl-wrrf/index.md
+      - owl-ont: packages/owl-ont/index.md
