@@ -40,7 +40,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - OpenWaterLab(OWL):
-  	  - About: about/index.md
+      - About: about/index.md
       - Overview: about/overview.md
       - Contributing: about/contributing.md
       - License: about/license.md
