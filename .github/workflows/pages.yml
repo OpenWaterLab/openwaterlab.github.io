@@ -48,37 +48,34 @@ jobs:
 
       # Copy docs from each repo into this site's docs/ tree
       - name: Prepare package docs folders
-  		run: |
-		  mkdir -p docs/packages/owl-data
-		  mkdir -p docs/packages/owl-twin
-		  mkdir -p docs/packages/owl-wrrf
-		  mkdir -p docs/packages/owl-ont
+        run: |
+            mkdir -p docs/packages/owl-data
+            mkdir -p docs/packages/owl-twin
+            mkdir -p docs/packages/owl-wrrf
+            mkdir -p docs/packages/owl-ont
+
       - name: Sync package docs into site
         run: |
           if [ -d "_repos/owl-data/docs" ]; then
-      		rsync -av --delete _repos/owl-data/docs/ docs/packages/owl-data/
-		  else
-      		echo "No docs folder found for owl-data"
-    	  fi
-
-    	  if [ -d "_repos/owl-twin/docs" ]; then
-      		rsync -av --delete _repos/owl-twin/docs/ docs/packages/owl-twin/
-    	  else
-      		echo "No docs folder found for owl-twin"
-    	  fi
-
-		  if [ -d "_repos/owl-wrrf/docs" ]; then
-      		rsync -av --delete _repos/owl-wrrf/docs/ docs/packages/owl-wrrf/
-    	  else
-      		echo "No docs folder found for owl-wrrf"
-    	  fi
-    	  
-    	  if [ -d "_repos/owl-ont/docs" ]; then
-      		rsync -av --delete _repos/owl-ont/docs/ docs/packages/owl-ont/
-    	  else
-      		echo "No docs folder found for owl-ont"
-    	  fi
-
+            rsync -av --delete _repos/owl-data/docs/ docs/packages/owl-data/
+          else
+            echo "No docs folder found for owl-data"
+          fi
+          if [ -d "_repos/owl-twin/docs" ]; then
+            rsync -av --delete _repos/owl-twin/docs/ docs/packages/owl-twin/
+          else
+            echo "No docs folder found for owl-twin"
+          fi
+          if [ -d "_repos/owl-wrrf/docs" ]; then
+            rsync -av --delete _repos/owl-wrrf/docs/ docs/packages/owl-wrrf/
+          else
+            echo "No docs folder found for owl-wrrf"
+          fi
+          if [ -d "_repos/owl-ont/docs" ]; then
+            rsync -av --delete _repos/owl-ont/docs/ docs/packages/owl-ont/
+          else
+            echo "No docs folder found for owl-ont"
+          fi
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
@@ -95,7 +92,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+            path: site
 
   deploy:
     needs: build
