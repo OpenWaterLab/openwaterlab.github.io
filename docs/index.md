@@ -1,10 +1,8 @@
-# **OpenWaterLab (OWL)**
-
 <p align="center">
   <img src="assets/OWL.svg" alt="owl logo" width="200"/>
 </p>
 
-<h1 align="center">owl</h1>
+<h1 align="center">OpenWaterLab (OWL)</h1>
 <p align="center">
 </p>
 
