@@ -6,7 +6,7 @@ repo_name: OpenWaterLab/openwaterlab.github.io
 
 theme:
   name: material
-  logo: docs/assets/OWL.svg
+  logo: assets/OWL.svg
   features:
     - navigation.instant
     - navigation.tracking
@@ -16,18 +16,18 @@ theme:
     - content.code.copy
   palette:
     - scheme: default
-      primary: blue
-      accent: teal
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to dark mode
-
-    - scheme: slate
-      primary: blue
-      accent: teal
+      primary: white
+      accent: blue
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to light mode
+
+    - scheme: slate
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
 
 markdown_extensions:
   - admonition
