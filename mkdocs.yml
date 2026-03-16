@@ -6,7 +6,7 @@ repo_name: OpenWaterLab/openwaterlab.github.io
 
 theme:
   name: material
-  logo: assets/OWL.svg
+  logo: docs/assets/OWL.svg
   features:
     - navigation.instant
     - navigation.tracking
