@@ -49,7 +49,6 @@ jobs:
       # Copy docs from each repo into this site's docs/ tree
       - name: Sync package docs into site
         run: |
-#          mkdir -p docs/owl-data docs/owl-twin docs/owl-sim
           rsync -av --delete _repos/owl-data/docs/ docs/packages/owl-data/
           rsync -av --delete _repos/owl-twin/docs/ docs/packages/owl-twin/
           rsync -av --delete _repos/owl-wrrf/docs/ docs/packages/owl-wrrf/
