@@ -42,15 +42,22 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - OWL:
-      - About: about/index.md
-      - Overview: about/overview.md
-      - Contributing: about/contributing.md
+  - About OWL:
+      - Overview: about/index.md
+      - Architecture: about/architecture.md
       - License: about/license.md
-  - Documentation:
+  - Packages:
       - owl-data: packages/owl-data/index.md
       - owl-twin: packages/owl-twin/index.md
       - owl-wrrf: packages/owl-wrrf/index.md
       - owl-ont: packages/owl-ont/index.md
-  - User Guide:
-      - OWL User Guide: manuals/index.md
+  - Documentation:
+      - Installation: documentation/installation/index.md
+      - Getting started: documentation/getting_started/index.md
+      - Tutorials: documentation/tutorials/index.md
+  - Roadmap:
+      - Development roadmap: ecosystem/roadmap.md
+  - Community:
+      - - Contributing: ecosystem/contributing.md
+  - Contact:
+      - Contact OWL: contact.md
