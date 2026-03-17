@@ -1,4 +1,4 @@
-OpenWaterLab(OWL)'s mission is to provide high-quality, transparent, and reusable tools for researchers, engineers, utilities and practitioners working on the modelling and digital representation of water systems.
+Open Water Lab(OWL)'s mission is to provide high-quality, transparent, and reusable tools for researchers, engineers, utilities and practitioners working on the modelling and digital representation of water systems.
 
 It aims to:
 
