@@ -58,6 +58,5 @@ nav:
   - Roadmap:
       - Development roadmap: ecosystem/roadmap.md
   - Community:
-      - - Contributing: ecosystem/contributing.md
-  - Contact:
-      - Contact OWL: contact.md
+      - Contributing: ecosystem/contributing.md
+  - Contact: contact.md
