@@ -1,0 +1,359 @@
+/* =========================================================
+   Open Water Lab (OWL)
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. Light mode variables
+   --------------------------------------------------------- */
+html[data-theme="light"] {
+  --pst-color-primary: rgb(30,100,200);
+  --pst-color-secondary: rgb(255, 210, 0);
+
+  --pst-color-link: rgb(30,100,200);
+  --pst-color-link-hover: rgb(255,210,0);
+
+  --pst-color-text-base: black;
+  --pst-color-text-muted: #475569;
+
+  --pst-color-background-primary: #ffffff;
+  --pst-color-on-background: #dbdcdf;
+  --pst-color-background-secondary: #f8fafc;
+  --pst-color-sidebar-background: rgb(255, 255, 255);
+  --pst-color-surface: #e4e9ee;
+  --pst-color-border: #000000a6;
+
+  --color-code-background: #f3f6f9;
+  --color-code-foreground: rgb(30,100,200);
+
+  --owl-heading-color: rgb(30,100,200);
+  --owl-active-color: rgb(30,100,200);
+  --owl-hover-bg: rgb(255,210,0);
+}
+
+
+/* ---------------------------------------------------------
+   2. Dark mode variables
+   --------------------------------------------------------- */
+html[data-theme="dark"] {
+  --pst-color-primary: rgb(39,171,173);
+  --pst-color-secondary: rgb(255, 210, 0);
+  --pst-color-link: rgb(39,171,173);
+  --pst-color-link-hover: rgb(255,210,0);
+
+  --pst-color-text-base: #e2e8f0;
+  --pst-color-text-muted: #94a3b8;
+
+  --pst-color-background: #172131;
+  --pst-color-background-primary: #172131;
+  --pst-color-on-background: #222832;
+  --pst-color-background-secondary: #172131;
+  --pst-color-sidebar-background: #172131;
+  --pst-color-surface: #475569;
+  --pst-color-border: #000000;
+
+  --color-code-background: #475569;
+  --color-code-foreground: rgb(39,171,173);
+
+  --owl-heading-color: rgb(39,171,173);
+  --owl-active-color: rgb(39,171,173);
+  --owl-hover-bg: rgb(255,210,0);
+}
+
+/* ---------------------------------------------------------
+   3. Global page styling
+   --------------------------------------------------------- */
+html,
+body {
+  color: var(--pst-color-text-base);
+  background-color: var(--pst-color-background-primary);
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Main content background */
+.bd-main {
+  background-color: var(--pst-color-background-primary);
+}
+
+/* Slightly soften the central content width feeling */
+.bd-content .bd-article-container {
+  max-width: 60rem;
+}
+
+/* ---------------------------------------------------------
+   4. Header / top navbar
+   --------------------------------------------------------- */
+.bd-header {
+  background-color: rgb(224, 219, 219);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.0);
+}
+
+/* Project title in header */
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.bd-header .navbar-nav {
+    color: rgba(99, 34, 34, 0.92);
+}
+
+/* Top navbar links */
+.bd-header .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.bd-header .navbar-nav .nav-link:hover,
+.bd-header .navbar-nav .nav-link:focus {
+  color: #ffffff;
+}
+
+/* Active top nav item */
+.bd-header .navbar-nav > .active > .nav-link,
+.bd-header .navbar-nav .nav-link.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   5. Sidebar
+   --------------------------------------------------------- */
+.bd-sidebar {
+  background-color: var(--pst-color-sidebar-background);
+  border-right: 1px solid var(--pst-color-border);
+}
+
+/* Sidebar links */
+.bd-sidebar .nav-link {
+  color: var(--pst-color-text-base);
+  border-radius: 0.35rem;
+}
+
+/* Hover state */
+.bd-sidebar .nav-link:hover {
+  color: var(--pst-color-primary);
+  background-color: var(--owl-hover-bg);
+}
+
+/* Current page */
+.bd-sidebar .nav-link.current,
+.bd-sidebar .nav-link.active {
+  color: var(--owl-active-color);
+  font-weight: 600;
+}
+
+/* Sidebar section titles / captions */
+.bd-sidebar .toctree-l1 > a,
+.bd-sidebar .caption,
+.bd-sidebar .caption-text {
+  color: var(--owl-heading-color);
+}
+
+/* ---------------------------------------------------------
+   6. In-page Table of Contents (right side)
+   --------------------------------------------------------- */
+.page-toc,
+.toc-entry {
+  color: var(--pst-color-text-muted);
+}
+
+.page-toc a,
+.toc-entry a {
+  color: var(--pst-color-text-muted);
+}
+
+.page-toc a:hover,
+.toc-entry a:hover {
+  color: var(--pst-color-link);
+}
+
+/* ---------------------------------------------------------
+   7. Body text and headings
+   --------------------------------------------------------- */
+p,
+li,
+dd,
+dt,
+td,
+th {
+  color: var(--pst-color-text-base);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--owl-heading-color);
+  font-weight: 600;
+  scroll-margin-top: 5rem;
+}
+
+h1 {
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+h2,
+h3 {
+  margin-top: 2rem;
+}
+
+/* ---------------------------------------------------------
+   8. Links
+   --------------------------------------------------------- */
+a {
+  color: var(--pst-color-link);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--pst-color-link-hover);
+  text-decoration: underline;
+}
+
+/* Content links specifically */
+.bd-article a {
+  color: var(--pst-color-link);
+}
+
+.bd-article a:hover,
+.bd-article a:focus {
+  color: var(--pst-color-link-hover);
+}
+
+/* ---------------------------------------------------------
+   9. Inline code and code blocks
+   --------------------------------------------------------- */
+code,
+tt {
+  color: var(--color-code-foreground);
+  background-color: var(--color-code-background);
+  border-radius: 0.25rem;
+  padding: 0.1rem 0.3rem;
+}
+
+pre,
+div.highlight,
+.highlight pre {
+  background-color: var(--color-code-background);
+  border: 1px solid var(--pst-color-border);
+  border-radius: 0.5rem;
+}
+
+.highlight {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------
+   10. Admonitions / notes
+   --------------------------------------------------------- */
+.admonition,
+div.admonition {
+  border-radius: 0.5rem;
+  border: 1px solid var(--pst-color-border);
+  box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   11. Tables
+   --------------------------------------------------------- */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th,
+table td {
+  border: 1px solid var(--pst-color-border);
+  padding: 0.55rem 0.75rem;
+}
+
+table th {
+  background-color: var(--pst-color-background-secondary);
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   12. Buttons / button-like links
+   --------------------------------------------------------- */
+button,
+.btn,
+a.btn {
+  border-radius: 0.4rem;
+}
+
+.btn-primary,
+a.btn-primary {
+  background-color: var(--pst-color-primary);
+  border-color: var(--pst-color-primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover,
+a.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+/* ---------------------------------------------------------
+   13. Search box / form controls
+   --------------------------------------------------------- */
+input,
+textarea,
+select {
+  background-color: var(--ost-color-background-primary);
+  color: var(--pst-color-text-base);
+  border: 1px solid var(--pst-color-border);
+  border-radius: 0.35rem;
+}
+
+/* ---------------------------------------------------------
+   14. Footer
+   --------------------------------------------------------- */
+.bd-footer {
+  border-top: 1px solid var(--pst-color-border);
+  background-color: var(--pst-color-background-secondary);
+}
+
+.bd-footer,
+.bd-footer p,
+.bd-footer a {
+  color: var(--pst-color-text-muted);
+}
+
+/* ---------------------------------------------------------
+   15. Images / logos
+   --------------------------------------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------------------------------------------------------
+   16. Optional: nicer horizontal rules
+   --------------------------------------------------------- */
+hr {
+  border: 0;
+  border-top: 1px solid var(--pst-color-border);
+  margin: 2rem 0;
+}
+
+/* .bd-sidebar .navbar-brand img {
+  height: 200px;
+  width: auto;
+} */
+
+i.fa-brands,
+i.fa-solid,
+i.fa-regular {
+  margin-right: 6px;
+}
