@@ -6,8 +6,8 @@ import os
 import sys
 
 # package documentation (e.g. owl-data)
-sys.path.insert(0, os.path.abspath("../../owl-data/src"))
-sys.path.insert(0, os.path.abspath("../../owl-twin/src"))
+# sys.path.insert(0, os.path.abspath("../../owl-data/src"))
+# sys.path.insert(0, os.path.abspath("../../owl-twin/src"))
 
 # ---------------------------------------------------------
 # Project information
