@@ -11,7 +11,7 @@
    <i class="fa-solid fa-code-branch"></i>
 
 Community
-=============
+=========
 
 Open Water Lab (OWL) welcomes collaboration with researchers, engineers,
 utilities, and organizations working on water system modelling and analysis.
@@ -28,19 +28,19 @@ Open Water Lab (OWL) is an open-source ecosystem that grows through
 collaboration between researchers, developers, and practitioners.
 
 |contributing-icon| Contributing
-------------
+--------------------------------
 
 See the contribution guidelines on GitHub:
 
 `OpenWaterLab contributing guide <https://github.com/OpenWaterLab/.github/blob/main/CONTRIBUTING.md>`_
 
 |discussion-icon| Discussions
------------
+-----------------------------
 
 Questions and ideas can be shared through the OWL GitHub organization.
 
 |collaboration-icon| Collaboration
--------------
+----------------------------------
 
 Researchers, engineers, and organizations interested in collaboration are
 welcome to get in touch.
