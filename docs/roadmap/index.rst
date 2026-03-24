@@ -13,17 +13,17 @@ The roadmap is indicative and may evolve as the ecosystem grows.The figure below
 	:align: center
 
 Current priorities
-------
+------------------
 
 Ecosystem foundations
-^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 - Establish a consistent package structure across the OWL ecosystem
 - Maintain unified documentation, branding, and development workflows
 - Improve testing, continuous integration, and release practices
 - Expand the central documentation website
 
 Core overarching packages
-^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 - Further test and validate `owl-data` for structured handling of water-related datasets
 - Further test and validate `owl-twin` for reusable digital twin pipelines and workflows
 - Develop first vesion of `owl-ont` as an ontology model for data architecture across OWL ecosystem
@@ -31,37 +31,37 @@ Core overarching packages
 
 
 Short-term goals
-------
+----------------
 
 `owl-data`
-^^^^^^
+^^^^^^^^^^
 - Add usage examples and API documentation
 - Improve testing coverage for core data workflows
 
 `owl-twin`
-^^^^^^
+^^^^^^^^^^
 - Add usage examples and API documentation
 - Improve testing coverage for core data workflows
 - Document integration with OWL data and simulation components
 
 `owl-ont`
-^^^^^^
+^^^^^^^^^
 - Develop the first version of the ontology model
 - Develop data mapping functionalities for knowledge graph creation
 - Add usage examples and API documentation
 
 `owl-wrrf`
-^^^^^^
+^^^^^^^^^^
 - Test and further fine tune the control schemes in BSM1
 - Provide a fully functional BSM1 version
 - Add usage examples and API documentation
 
 
 Mid-term goals
------
+--------------
 
 Domain-specific simulation modules
-^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Develop ``owl-wsrc`` for water source modelling
 - Develop ``owl-wtp`` for drinking water treatment modelling
 - Develop ``owl-wdn`` for drinking water distribution modelling
@@ -70,19 +70,19 @@ Domain-specific simulation modules
 - Develop ``owl-river`` for river water quality modelling
 
 Documentation and tutorials
-^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Add practical tutorials and reproducible example workflows
 - Improve package-level and ecosystem-level documentation
 - Provide guidance for contributors who want to integrate new models and tools
 
 Community and collaboration
-^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Strengthen contribution pathways for external collaborators
 - Encourage reuse of OWL tools in research and engineering practice
 - Build connections with related open-source and academic initiatives
 
 Long-term vision
------
+----------------
 
 The long-term ambition of **Open Water Lab (OWL)** is to provide a modular and extensible ecosystem of free and open-source tools for:
 
@@ -105,7 +105,7 @@ In the long-term OWL plans to include more advanced urban water system component
 
 
 Development status overview
------
+---------------------------
 +----------------+--------------------+--------------------------------------------------+
 | **OWL module** | **Status**         | **Description**                                  |
 +----------------+--------------------+--------------------------------------------------+
@@ -134,7 +134,7 @@ Development status overview
 
 
 Contributing to the roadmap
------
+---------------------------
 
 Contributions, suggestions, and feedback are welcome.
 

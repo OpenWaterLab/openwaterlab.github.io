@@ -1,12 +1,13 @@
 # =========================================================
-# Open Water Lab (OWL) — Sphinx configuration
+# Open Water Lab (OWL)
 # =========================================================
 
 import os
 import sys
 
-# If you later want to include Python packages (e.g. owl-data)
-# sys.path.insert(0, os.path.abspath("../src"))
+# package documentation (e.g. owl-data)
+sys.path.insert(0, os.path.abspath("../../owl-data/src"))
+sys.path.insert(0, os.path.abspath("../../owl-twin/src"))
 
 # ---------------------------------------------------------
 # Project information
@@ -15,8 +16,6 @@ import sys
 project = "Open Water Lab (OWL)"
 author = "Open Water Lab (OWL)"
 copyright = "2026, Open Water Lab (OWL), BIOMATH, UGent"
-
-# Version (optional for now)
 release = "0.1.0"
 
 # ---------------------------------------------------------
@@ -24,13 +23,27 @@ release = "0.1.0"
 # ---------------------------------------------------------
 
 extensions = [
-    "myst_parser",              # Markdown support
+    "myst_parser",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
+    "sphinx_autodoc_typehints",     
 ]
+
+autodoc_default_options = {
+    "members": True,
+    "undoc-members": False,
+    "private-members": False,
+    "show-inheritance": True,
+}
+
+napoleon_google_docstring = False
+napoleon_numpy_docstring = True
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
-# Allow both .rst and .md files
 source_suffix = {
     ".rst": "restructuredtext",
     ".md": "markdown",
@@ -44,10 +57,9 @@ html_theme = "pydata_sphinx_theme"
 
 html_title = "Open Water Lab (OWL)"
 
-# Static files (CSS, images, logos)
+
 html_static_path = ["_static"]
 
-# Add custom CSS
 def setup(app):
     app.add_css_file("custom.css")
 
@@ -80,17 +92,11 @@ html_theme_options = {
 }
 
 # ---------------------------------------------------------
-# Logo / branding (optional)
+# Logos
 # ---------------------------------------------------------
 
-# If you add a logo:
-# docs/_static/logo.png
 
 html_logo = "_static/OWL.png"
-
-# Optional favicon:
-# docs/_static/favicon.png
-
 html_favicon = "_static/OWL.png"
 
 # ---------------------------------------------------------
@@ -98,8 +104,8 @@ html_favicon = "_static/OWL.png"
 # ---------------------------------------------------------
 
 myst_enable_extensions = [
-    "colon_fence",     # allows ::: blocks
-    "deflist",         # definition lists
+    "colon_fence",     
+    "deflist",         
     "html_admonition",
     "html_image",
 ]
@@ -112,8 +118,10 @@ html_show_sourcelink = False
 html_copy_source = False
 html_show_sphinx = False
 
+autosummary_generate = True
+
 # ---------------------------------------------------------
-# Optional: better section labels (useful later)
+# Optional
 # ---------------------------------------------------------
 
 # from sphinx.ext.autosectionlabel import *
@@ -125,6 +133,3 @@ html_context = {
     "github_version": "main",
     "doc_path": "docs",
 }
-# ---------------------------------------------------------
-# End of config
-# =========================================================

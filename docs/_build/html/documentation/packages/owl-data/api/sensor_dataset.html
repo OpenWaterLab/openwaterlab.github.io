@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SensorDataset &#8212; Open Water Lab (OWL)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=2fbbba84" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../../_static/documentation_options.js?v=63867087"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'documentation/packages/owl-data/api/sensor_dataset';</script>
+    <link rel="icon" href="../../../../_static/OWL.png"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/OWL.png" class="logo__image only-light" alt=""/>
+    <img src="../../../../_static/OWL.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">Open Water Lab (OWL)</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../about/index.html">
+    About OWL
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../roadmap/index.html">
+    Roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../community/index.html">
+    Community
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contact.html">
+    Contact
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenWaterLab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../about/index.html">
+    About OWL
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../index.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../roadmap/index.html">
+    Roadmap
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../community/index.html">
+    Community
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contact.html">
+    Contact
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/OpenWaterLab" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="dataset.html">Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_dataset.html">LabDataset</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SensorDataset</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">SensorDataset</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-owl.data.sensor_dataset">
+<span id="sensordataset"></span><h1>SensorDataset<a class="headerlink" href="#module-owl.data.sensor_dataset" title="Link to this heading">#</a></h1>
+<p>SensorDataset abstraction for handling sensor data in urban water systems.</p>
+<p>This module defines the ‘SensorDataset’ class used to handle time-series datasets collected by online sensors in the OpenWaterLab (OWL) ecosystem.</p>
+<p>The SensorDataset class extends the Dataset class by providing additional functionalities for gap filling using various algorithms.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>SensorDataset</dt><dd><p>Extends Dataset class for time-series sensor data measurements.</p>
+</dd>
+</dl>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">owl.data.sensor_dataset.</span></span><span class="sig-name descname"><span class="pre">SensorDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timedata_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'index'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'WWTP'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">experiment_tag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'No</span> <span class="pre">tag</span> <span class="pre">given'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="dataset.html#owl.data.dataset.Dataset" title="owl.data.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a></p>
+<p>Dataset class for handling online sensor time-series.</p>
+<p>This class extends the base <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> with functionality tailored to
+continuous or high-frequency sensor measurements commonly encountered in
+water and wastewater systems. In particular it adds various gap filling algorithms
+to the base class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>) – Time-indexed sensor data, where rows correspond to timestamps and
+columns correspond to sensor signals.</p></li>
+<li><p><strong>timedata_column</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Column used as the time reference, or <code class="docutils literal notranslate"><span class="pre">&quot;index&quot;</span></code> if the index
+represents time.</p></li>
+<li><p><strong>data_type</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Type of data represented in the dataset.</p></li>
+<li><p><strong>experiment_tag</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Label identifying the dataset or experiment.</p></li>
+<li><p><strong>time_unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Unit of the time axis if it is numeric rather than datetime-like
+(e.g., <code class="docutils literal notranslate"><span class="pre">&quot;min&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;h&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;d&quot;</span></code>).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Inherits</span> <span class="pre">all</span> <span class="pre">attributes</span> <span class="pre">from</span> <span class="pre">'Dataset'.</span></span></dt>
+<dd></dd></dl>
+
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The class is intended for continuous or regularly sampled sensor data.</p></li>
+<li><p>It inherits all core functionality from <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> and may extend it
+with sensor-specific validation, filtering, gap filling and resampling utilities.</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.add_to_filled">
+<span class="sig-name descname"><span class="pre">add_to_filled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_names</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.add_to_filled"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.add_to_filled" title="Link to this definition">#</a></dt>
+<dd><p>Add one or more columns into <cite>self.filled</cite>, seeding them with the <em>validated</em>
+(i.e., ‘original’ in meta_valid) values from <cite>self.data</cite>. All other rows
+become NaN (to be filled later by imputation methods).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>column_names</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Column(s) to add/seed into <cite>self.filled</cite>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If <cite>meta_valid</cite> is missing or does not contain a column tag, the entire</p></li>
+</ul>
+<p>column is copied (with a warning).
+- <cite>self.filled</cite> is created/reindexed to match <cite>self.data.index</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.calc_daily_average">
+<span class="sig-name descname"><span class="pre">calc_daily_average</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.calc_daily_average"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.calc_daily_average" title="Link to this definition">#</a></dt>
+<dd><p>Compute daily averages and standard deviations for a column.</p>
+<p>The method aggregates data on a daily basis and stores the results
+internally for further analysis or visualization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column_name</strong> (<span class="sphinx_autodoc_typehints-type">str</span>) – Name of the column to aggregate.</p></li>
+<li><p><strong>arange</strong> (<span class="sphinx_autodoc_typehints-type">Optional[Tuple[object, object]]</span>) – Range of data over which the aggregation is performed.
+Must be compatible with the index type. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the full
+dataset is used.</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type">bool</span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a plot showing daily mean values with
+standard deviation as error bars.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">plot=True</span></code>, returns the generated figure and axes.
+Otherwise, returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type">Optional[Tuple[‘matplotlib.figure.Figure’, ‘matplotlib.axes.Axes’]]</span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If the index is a <code class="docutils literal notranslate"><span class="pre">DatetimeIndex</span></code>, data is resampled by calendar day.</p></li>
+<li><p>If the index is numeric, days are defined as integer bins <code class="docutils literal notranslate"><span class="pre">[n,</span> <span class="pre">n+1)</span></code>.</p></li>
+<li><p>Results are stored in <code class="docutils literal notranslate"><span class="pre">self.daily_average[column_name]</span></code> as a DataFrame</p></li>
+</ul>
+<p>with columns <code class="docutils literal notranslate"><span class="pre">[&quot;day&quot;,</span> <span class="pre">&quot;mean&quot;,</span> <span class="pre">&quot;std&quot;]</span></code>.
+- The dataset itself is not modified.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.calc_total_proportional">
+<span class="sig-name descname"><span class="pre">calc_total_proportional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Q_tot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conc</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'new'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mg/l'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.calc_total_proportional"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.calc_total_proportional" title="Link to this definition">#</a></dt>
+<dd><p>Compute a flow-weighted total concentration.</p>
+<p>The method calculates a combined concentration based on multiple
+contributing flows and their associated concentrations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Q_tot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column containing the total flow (denominator).</p></li>
+<li><p><strong>Q</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Names of the columns representing contributing flows.</p></li>
+<li><p><strong>conc</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Names of the columns representing concentrations corresponding
+to each flow in <code class="docutils literal notranslate"><span class="pre">Q</span></code> (same order).</p></li>
+<li><p><strong>new_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the output column to create.</p></li>
+<li><p><strong>unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Unit string assigned to the new column.</p></li>
+<li><p><strong>filled</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, perform the calculation using filled data.
+Otherwise, use the original dataset.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The total concentration is computed as:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">sum(Q_i</span> <span class="pre">*</span> <span class="pre">conc_i)</span> <span class="pre">/</span> <span class="pre">Q_tot</span></code>.
+- The result is added as a new column to the selected dataset.
+- The dataset is modified in place.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.check_filling_error">
+<span class="sig-name descname"><span class="pre">check_filling_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nr_iterations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filling_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data_range</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_small_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_size_small_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_large_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_size_large_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.check_filling_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.check_filling_error" title="Link to this definition">#</a></dt>
+<dd><p>Evaluate filling performance using repeated artificial-gap tests.</p>
+<p>The method repeatedly creates artificial gaps, applies a filling method,
+and computes the average reconstruction error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nr_iterations</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of repetitions used to estimate the average error.</p></li>
+<li><p><strong>data_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column to evaluate.</p></li>
+<li><p><strong>filling_function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">...</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</span>) – Filling method to apply. Can be the name of a method or a callable.</p></li>
+<li><p><strong>test_data_range</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>]</span>) – Range of data over which the evaluation is performed.</p></li>
+<li><p><strong>nr_small_gaps</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of small gaps to generate per iteration.</p></li>
+<li><p><strong>max_size_small_gaps</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Maximum size of small gaps (in number of samples).</p></li>
+<li><p><strong>nr_large_gaps</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of large gaps to generate per iteration.</p></li>
+<li><p><strong>max_size_large_gaps</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Maximum size of large gaps (in number of samples).</p></li>
+<li><p><strong>random_state</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Random seed for reproducibility.</p></li>
+<li><p><strong>**options</strong> – Additional keyword arguments passed to the filling function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Each iteration creates artificial gaps and evaluates reconstruction error.</p></li>
+<li><p>The average error (in percent) is stored in <code class="docutils literal notranslate"><span class="pre">self.filling_error</span></code>.</p></li>
+<li><p>The dataset itself is not modified.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.compare_filling_methods">
+<span class="sig-name descname"><span class="pre">compare_filling_methods</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_specs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_data_range</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_iterations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_small_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_size_small_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nr_large_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_size_large_gaps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.compare_filling_methods"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.compare_filling_methods" title="Link to this definition">#</a></dt>
+<dd><p>Compare multiple filling methods using artificial-gap tests.</p>
+<p>The method evaluates several filling approaches by repeatedly creating
+artificial gaps, applying each method, and summarizing the resulting
+reconstruction errors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column whose filling performance is evaluated.</p></li>
+<li><p><strong>method_specs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]</span>) – Mapping from method labels to specification dictionaries.
+Each specification must include a <code class="docutils literal notranslate"><span class="pre">&quot;filling_function&quot;</span></code> entry
+containing either the name of a filling method or a callable.
+Additional entries are passed as keyword arguments to the method.</p></li>
+<li><p><strong>test_data_range</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>]</span>) – Range of data over which artificial gaps are created and evaluation
+is performed.</p></li>
+<li><p><strong>nr_iterations</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of random trials performed for each method.</p></li>
+<li><p><strong>nr_small_gaps</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of small gaps to generate per iteration.</p></li>
+<li><p><strong>max_size_small_gaps</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Maximum size of small gaps (in number of samples).</p></li>
+<li><p><strong>nr_large_gaps</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of large gaps to generate per iteration.</p></li>
+<li><p><strong>max_size_large_gaps</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Maximum size of large gaps (in number of samples).</p></li>
+<li><p><strong>random_state</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Seed base for reproducibility across methods and iterations.</p></li>
+<li><p><strong>return_errors</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, include per-iteration errors in the returned DataFrame.</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a bar chart of the average filling error for
+each method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>DataFrame summarizing the performance of each filling method. The table
+includes mean error, standard deviation, number of successful runs,
+number of attempts, and success rate. If <code class="docutils literal notranslate"><span class="pre">return_errors=True</span></code>, the
+per-iteration error values are also included.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If a method specification does not provide <code class="docutils literal notranslate"><span class="pre">to_fill</span></code>, it is set</p></li>
+</ul>
+<p>automatically to <code class="docutils literal notranslate"><span class="pre">data_name</span></code>.
+- Artificial gaps are generated independently for each iteration.
+- Results are sorted by mean reconstruction error, with lower values
+indicating better performance.
+- The dataset itself is not modified.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.drop_index_duplicates">
+<span class="sig-name descname"><span class="pre">drop_index_duplicates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'first'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_number</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.drop_index_duplicates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.drop_index_duplicates" title="Link to this definition">#</a></dt>
+<dd><p>Remove duplicate index entries from the dataset.</p>
+<p>The method drops duplicated index rows from the data and applies the same
+selection to associated metadata and auxiliary data structures.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>keep</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[<code class="docutils literal notranslate"><span class="pre">'first'</span></code>, <code class="docutils literal notranslate"><span class="pre">'last'</span></code>, <code class="docutils literal notranslate"><span class="pre">False</span></code>]</span>) – Which duplicate entries to retain. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, all occurrences of
+duplicated index labels are removed.</p></li>
+<li><p><strong>sort_index</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, sort all affected data structures by index after removal.</p></li>
+<li><p><strong>print_number</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, print the number of duplicate rows removed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The same positional mask is applied consistently across <code class="docutils literal notranslate"><span class="pre">data</span></code> and</p></li>
+</ul>
+<p>related attributes (e.g., metadata and filled data).
+- The operation modifies the dataset in place.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.fill_missing_arima">
+<span class="sig-name descname"><span class="pre">fill_missing_arima</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_fill</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">0,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seasonal_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_gap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enforce_stationarity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enforce_invertibility</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.fill_missing_arima"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_arima" title="Link to this definition">#</a></dt>
+<dd><p>Fill missing values using ARIMA/SARIMA model predictions.</p>
+<p>The method fills filtered values in a column using in-sample predictions
+from a SARIMAX (ARIMA/SARIMA) model, while preserving original observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_fill</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column to fill.</p></li>
+<li><p><strong>arange</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Range of data over which filling is applied. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the full
+dataset is considered.</p></li>
+<li><p><strong>order</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – Non-seasonal ARIMA order <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">d,</span> <span class="pre">q)</span></code>.</p></li>
+<li><p><strong>seasonal_order</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Seasonal ARIMA order <code class="docutils literal notranslate"><span class="pre">(P,</span> <span class="pre">D,</span> <span class="pre">Q,</span> <span class="pre">s)</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, no seasonal
+component is used.</p></li>
+<li><p><strong>trend</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[<code class="docutils literal notranslate"><span class="pre">'n'</span></code>, <code class="docutils literal notranslate"><span class="pre">'c'</span></code>, <code class="docutils literal notranslate"><span class="pre">'t'</span></code>, <code class="docutils literal notranslate"><span class="pre">'ct'</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Trend specification for the SARIMAX model.</p></li>
+<li><p><strong>max_gap</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Maximum length of consecutive filtered values to fill. If <code class="docutils literal notranslate"><span class="pre">None</span></code>,
+no restriction is applied.</p></li>
+<li><p><strong>enforce_stationarity</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to enforce stationarity in the ARIMA model.</p></li>
+<li><p><strong>enforce_invertibility</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to enforce invertibility in the ARIMA model.</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a diagnostic plot after filling.</p></li>
+<li><p><strong>clear</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, reset previous filling results before applying the method.</p></li>
+<li><p><strong>fit_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Additional keyword arguments passed to the model fitting routine.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Only values currently tagged as <code class="docutils literal notranslate"><span class="pre">&quot;filtered&quot;</span></code> are considered for filling.</p></li>
+<li><p>Original values are preserved.</p></li>
+<li><p>Predictions are generated using a SARIMAX model fitted on the selected data.</p></li>
+<li><p>Filled values are written to <code class="docutils literal notranslate"><span class="pre">self.filled[to_fill]</span></code>.</p></li>
+<li><p>Metadata is updated in <code class="docutils literal notranslate"><span class="pre">self.meta_filled[to_fill]</span></code> with the tag</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;filled_arima&quot;</span></code> where filling is successful.
+- If <code class="docutils literal notranslate"><span class="pre">max_gap</span></code> is provided, only filtered runs with length less than or
+equal to <code class="docutils literal notranslate"><span class="pre">max_gap</span></code> are filled.
+- The operation modifies the dataset in place.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.fill_missing_daybefore">
+<span class="sig-name descname"><span class="pre">fill_missing_daybefore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_fill</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arange</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_to_replace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1.0,</span> <span class="pre">4.0]</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_checked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.fill_missing_daybefore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_daybefore" title="Link to this definition">#</a></dt>
+<dd><p>Fill missing values using data from the previous day.</p>
+<p>The method fills filtered values in a column by copying values from the
+same time-of-day on the previous day, using the best available source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_fill</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column to fill.</p></li>
+<li><p><strong>arange</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>]</span>) – Range of data over which filling is applied. The range must begin at
+least one day after the start of the dataset.</p></li>
+<li><p><strong>range_to_replace</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>) – Minimum and maximum consecutive gap length, expressed in days, that
+will be filled. These values are converted to numbers of samples
+based on the previous-day sample count.</p></li>
+<li><p><strong>only_checked</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, restrict filling to indices tagged as <code class="docutils literal notranslate"><span class="pre">&quot;filtered&quot;</span></code>.
+Otherwise, consider all rows in <code class="docutils literal notranslate"><span class="pre">arange</span></code>.</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a diagnostic plot after filling.</p></li>
+<li><p><strong>clear</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, reset previous filling results before applying the method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The method requires equidistant sampling.</p></li>
+<li><p>Values are copied from the same time-of-day on the previous day.</p></li>
+<li><p>When available, values from <code class="docutils literal notranslate"><span class="pre">self.filled[to_fill]</span></code> are used first;</p></li>
+</ul>
+<p>otherwise, values from <code class="docutils literal notranslate"><span class="pre">self.data[to_fill]</span></code> are used.
+- Original values are preserved.
+- Filled values are written to <code class="docutils literal notranslate"><span class="pre">self.filled[to_fill]</span></code>.
+- Metadata is updated in <code class="docutils literal notranslate"><span class="pre">self.meta_filled[to_fill]</span></code> to reflect filled values.
+- The dataset is modified in place.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.fill_missing_gaussian">
+<span class="sig-name descname"><span class="pre">fill_missing_gaussian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_fill</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_checked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_train_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stride</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seasonal_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'d'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_restarts_optimizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context_expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.fill_missing_gaussian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_gaussian" title="Link to this definition">#</a></dt>
+<dd><p>Fill missing values using Gaussian Process regression.</p>
+<p>The method fits a Gaussian Process (GP) model on observed data and predicts
+values at filtered indices, optionally incorporating exogenous variables.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_fill</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column to fill.</p></li>
+<li><p><strong>arange</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Range of data over which the model is trained and applied. If <code class="docutils literal notranslate"><span class="pre">None</span></code>,
+the full dataset is used.</p></li>
+<li><p><strong>only_checked</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, restrict predictions to indices marked as checked/valid
+for filling.</p></li>
+<li><p><strong>clear</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, reset previous filling results before applying the method.</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a diagnostic plot after filling.</p></li>
+<li><p><strong>max_train_points</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Maximum number of training points used for GP fitting.</p></li>
+<li><p><strong>stride</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Subsampling step applied to training data to reduce computational cost.</p></li>
+<li><p><strong>kernel</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Custom kernel for the Gaussian Process model.</p></li>
+<li><p><strong>seasonal_period</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timedelta</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Period of a seasonal component to include via a periodic kernel.</p></li>
+<li><p><strong>unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Unit used when interpreting numeric time values.</p></li>
+<li><p><strong>alpha</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Value added to the diagonal of the kernel matrix for numerical stability.</p></li>
+<li><p><strong>normalize_y</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to normalize the target variable before fitting.</p></li>
+<li><p><strong>n_restarts_optimizer</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Number of restarts for kernel hyperparameter optimization.</p></li>
+<li><p><strong>random_state</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Random seed for reproducibility.</p></li>
+<li><p><strong>context_expand</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timedelta</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Optional extension of the training window around <code class="docutils literal notranslate"><span class="pre">arange</span></code>.</p></li>
+<li><p><strong>X_cols</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Additional columns used as exogenous input features.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The model is trained on points tagged as <code class="docutils literal notranslate"><span class="pre">&quot;original&quot;</span></code> in <code class="docutils literal notranslate"><span class="pre">meta_valid</span></code>.</p></li>
+<li><p>Predictions are made for indices tagged as <code class="docutils literal notranslate"><span class="pre">&quot;filtered&quot;</span></code>.</p></li>
+<li><p>Filled values are written to <code class="docutils literal notranslate"><span class="pre">self.filled[to_fill]</span></code>.</p></li>
+<li><p>Metadata is updated in <code class="docutils literal notranslate"><span class="pre">self.meta_filled[to_fill]</span></code> with the tag</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;filled_gaussian&quot;</span></code> where filling is successful.
+- Gaussian Process training scales cubically with the number of points;
+use <code class="docutils literal notranslate"><span class="pre">max_train_points</span></code> and <code class="docutils literal notranslate"><span class="pre">stride</span></code> to control computational cost.
+- A periodic kernel can be included via <code class="docutils literal notranslate"><span class="pre">seasonal_period</span></code> to capture
+repeating patterns.
+- The operation modifies the dataset in place.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.fill_missing_interpolation">
+<span class="sig-name descname"><span class="pre">fill_missing_interpolation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_fill</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">range_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'time'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit_direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.fill_missing_interpolation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_interpolation" title="Link to this definition">#</a></dt>
+<dd><p>Fill short missing segments using interpolation.</p>
+<p>The method fills filtered values in a column by interpolating over
+short gaps, while preserving original values and longer missing segments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_fill</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column to fill.</p></li>
+<li><p><strong>range</strong> (<em>int</em>) – Maximum length of consecutive filtered values to be filled.
+Longer segments remain unfilled.</p></li>
+<li><p><strong>arange</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Range of data over which filling is applied. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the full
+dataset is considered.</p></li>
+<li><p><strong>method</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Interpolation method passed to the underlying interpolation routine.</p></li>
+<li><p><strong>limit_direction</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Direction for interpolation (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;forward&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;backward&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;both&quot;</span></code>).</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a diagnostic plot of the filling results.</p></li>
+<li><p><strong>clear</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, reset previous filling results before applying the method.</p></li>
+<li><p><strong>**kwargs</strong> – Additional keyword arguments passed to the interpolation function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Only filtered values within segments of length <code class="docutils literal notranslate"><span class="pre">&lt;=</span> <span class="pre">range_</span></code> are filled.</p></li>
+<li><p>Non-filtered values remain unchanged.</p></li>
+<li><p>Filled values are stored in <code class="docutils literal notranslate"><span class="pre">self.filled[to_fill]</span></code>.</p></li>
+<li><p>Metadata is updated in <code class="docutils literal notranslate"><span class="pre">self.meta_filled[to_fill]</span></code> with the tag</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;filled_interpol&quot;</span></code> for successfully filled points.
+- Longer filtered segments remain unfilled and retain their original tags.
+- The operation modifies the dataset in place.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.fill_missing_kalman">
+<span class="sig-name descname"><span class="pre">fill_missing_kalman</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_fill</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'local_level'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seasonal_periods</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_gap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.fill_missing_kalman"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_kalman" title="Link to this definition">#</a></dt>
+<dd><p>Fill missing values using a state-space Kalman smoother.</p>
+<p>The method fills filtered values in a column using estimates from a
+structural time-series model, while preserving original observations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_fill</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column to fill.</p></li>
+<li><p><strong>arange</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Range of data over which filling is applied. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the full
+dataset is considered.</p></li>
+<li><p><strong>model</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Literal</span></code>[<code class="docutils literal notranslate"><span class="pre">'local_level'</span></code>, <code class="docutils literal notranslate"><span class="pre">'local_linear_trend'</span></code>]</span>) – Type of structural model used for smoothing.</p></li>
+<li><p><strong>seasonal_periods</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Length of a deterministic seasonal component, expressed in number of samples.</p></li>
+<li><p><strong>max_gap</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Maximum length of consecutive filtered values to fill. If <code class="docutils literal notranslate"><span class="pre">None</span></code>,
+no restriction is applied.</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a diagnostic plot after filling.</p></li>
+<li><p><strong>clear</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, reset previous filling results before applying the method.</p></li>
+<li><p><strong>fit_kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Additional keyword arguments passed to the model fitting routine.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Only values currently tagged as <code class="docutils literal notranslate"><span class="pre">&quot;filtered&quot;</span></code> are considered for filling.</p></li>
+<li><p>Original values are preserved.</p></li>
+<li><p>Filled values are written to <code class="docutils literal notranslate"><span class="pre">self.filled[to_fill]</span></code>.</p></li>
+<li><p>Metadata is updated in <code class="docutils literal notranslate"><span class="pre">self.meta_filled[to_fill]</span></code> with the tag</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;filled_kalman&quot;</span></code> where filling is successful.
+- If <code class="docutils literal notranslate"><span class="pre">max_gap</span></code> is provided, only filtered runs with length less than or
+equal to <code class="docutils literal notranslate"><span class="pre">max_gap</span></code> are filled.
+- The operation modifies the dataset in place.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.fill_missing_model">
+<span class="sig-name descname"><span class="pre">fill_missing_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_fill</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_use</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_checked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'d'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.fill_missing_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_model" title="Link to this definition">#</a></dt>
+<dd><p>Fill missing values using an external model time series.</p>
+<p>The method fills filtered values in a column using values from an
+external series or model output, aligned to the dataset index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_fill</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column to fill.</p></li>
+<li><p><strong>to_use</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Series</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span>) – External time series providing values for filling.</p></li>
+<li><p><strong>arange</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Range of data over which filling is applied. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the full
+dataset is considered.</p></li>
+<li><p><strong>only_checked</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, restrict filling to indices tagged as <code class="docutils literal notranslate"><span class="pre">&quot;filtered&quot;</span></code>.</p></li>
+<li><p><strong>unit</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Unit used when interpreting numeric time values for alignment.</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a diagnostic plot after filling.</p></li>
+<li><p><strong>clear</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, reset previous filling results before applying the method.</p></li>
+<li><p><strong>tolerance</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timedelta</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Maximum allowed difference when aligning external data to the dataset index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>External data is aligned to the dataset index before filling.</p></li>
+<li><p>Only values currently tagged as <code class="docutils literal notranslate"><span class="pre">&quot;filtered&quot;</span></code> are filled (unless</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">only_checked=False</span></code>).
+- Original values are preserved.
+- Filled values are written to <code class="docutils literal notranslate"><span class="pre">self.filled[to_fill]</span></code>.
+- Metadata is updated in <code class="docutils literal notranslate"><span class="pre">self.meta_filled[to_fill]</span></code> to reflect filled values.
+- The dataset is modified in place.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.fill_missing_ratio">
+<span class="sig-name descname"><span class="pre">fill_missing_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_fill</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_use</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimate_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_only_original</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_intercept</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">robust</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_train_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_checked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.fill_missing_ratio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_ratio" title="Link to this definition">#</a></dt>
+<dd><p>Fill missing values using a linear relationship with another column.</p>
+<p>The method fills filtered values in a column using a linear relation of the form
+<code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">=</span> <span class="pre">ratio</span> <span class="pre">*</span> <span class="pre">data[to_use]</span> <span class="pre">+</span> <span class="pre">intercept</span></code>, with optional parameter estimation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_fill</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column to fill.</p></li>
+<li><p><strong>to_use</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the reference (driver) column.</p></li>
+<li><p><strong>ratio</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Multiplicative factor. Required if <code class="docutils literal notranslate"><span class="pre">estimate_params=False</span></code>.</p></li>
+<li><p><strong>arange</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Range of data over which filling is applied. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the full
+dataset is considered.</p></li>
+<li><p><strong>intercept</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Additive constant applied in the linear relation.</p></li>
+<li><p><strong>estimate_params</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, estimate <code class="docutils literal notranslate"><span class="pre">ratio</span></code> and <code class="docutils literal notranslate"><span class="pre">intercept</span></code> from data.</p></li>
+<li><p><strong>train_range</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Range used to estimate parameters. Defaults to <code class="docutils literal notranslate"><span class="pre">arange</span></code> if provided,
+otherwise the full dataset.</p></li>
+<li><p><strong>train_only_original</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use only points tagged as <code class="docutils literal notranslate"><span class="pre">&quot;original&quot;</span></code> for training.</p></li>
+<li><p><strong>zero_intercept</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, force the intercept to zero during estimation.</p></li>
+<li><p><strong>robust</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, use a robust regression method (e.g., RANSAC) if available.</p></li>
+<li><p><strong>min_train_points</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Minimum number of samples required to estimate parameters.</p></li>
+<li><p><strong>only_checked</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, restrict filling to indices tagged as <code class="docutils literal notranslate"><span class="pre">&quot;filtered&quot;</span></code>.</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a diagnostic plot after filling.</p></li>
+<li><p><strong>clear</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, reset previous filling results before applying the method.</p></li>
+<li><p><strong>return_params</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, return the fitted or used parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>If <code class="docutils literal notranslate"><span class="pre">return_params=True</span></code>, returns a dictionary with keys
+<code class="docutils literal notranslate"><span class="pre">{&quot;ratio&quot;,</span> <span class="pre">&quot;intercept&quot;}</span></code>. Otherwise, returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">estimate_params=True</span></code>, parameters are fitted using the specified</p></li>
+</ul>
+<p>training range and constraints.
+- Only values currently tagged as <code class="docutils literal notranslate"><span class="pre">&quot;filtered&quot;</span></code> are filled (unless
+<code class="docutils literal notranslate"><span class="pre">only_checked=False</span></code>).
+- Filled values are written to <code class="docutils literal notranslate"><span class="pre">self.filled[to_fill]</span></code>.
+- Metadata is updated in <code class="docutils literal notranslate"><span class="pre">self.meta_filled[to_fill]</span></code> to reflect filled values.
+- The dataset is modified in place.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="owl.data.sensor_dataset.SensorDataset.fill_missing_standard">
+<span class="sig-name descname"><span class="pre">fill_missing_standard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_fill</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arange</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">only_checked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/owl/data/sensor_dataset.html#SensorDataset.fill_missing_standard"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_standard" title="Link to this definition">#</a></dt>
+<dd><p>Fill missing values using a standard daily profile.</p>
+<p>The method fills filtered values in a column using the average daily
+profile computed from the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to_fill</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Name of the column to fill.</p></li>
+<li><p><strong>arange</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code>] | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – Range of data over which filling is applied. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the full
+dataset is considered.</p></li>
+<li><p><strong>only_checked</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, restrict filling to indices tagged as <code class="docutils literal notranslate"><span class="pre">&quot;filtered&quot;</span></code>.</p></li>
+<li><p><strong>plot</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, generate a diagnostic plot after filling.</p></li>
+<li><p><strong>clear</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, reset previous filling results before applying the method.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Filling is based on the average daily profile computed by</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">calc_daily_profile()</span></code>.
+- Values are matched by time-of-day.
+- Original values are preserved.
+- Filled values are written to <code class="docutils literal notranslate"><span class="pre">self.filled[to_fill]</span></code>.
+- Metadata is updated in <code class="docutils literal notranslate"><span class="pre">self.meta_filled[to_fill]</span></code> with the tag
+<code class="docutils literal notranslate"><span class="pre">&quot;filled_average_profile&quot;</span></code> where filling is successful.
+- The dataset is modified in place.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset"><code class="docutils literal notranslate"><span class="pre">SensorDataset</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.add_to_filled"><code class="docutils literal notranslate"><span class="pre">SensorDataset.add_to_filled()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.calc_daily_average"><code class="docutils literal notranslate"><span class="pre">SensorDataset.calc_daily_average()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.calc_total_proportional"><code class="docutils literal notranslate"><span class="pre">SensorDataset.calc_total_proportional()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.check_filling_error"><code class="docutils literal notranslate"><span class="pre">SensorDataset.check_filling_error()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.compare_filling_methods"><code class="docutils literal notranslate"><span class="pre">SensorDataset.compare_filling_methods()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.drop_index_duplicates"><code class="docutils literal notranslate"><span class="pre">SensorDataset.drop_index_duplicates()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_arima"><code class="docutils literal notranslate"><span class="pre">SensorDataset.fill_missing_arima()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_daybefore"><code class="docutils literal notranslate"><span class="pre">SensorDataset.fill_missing_daybefore()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_gaussian"><code class="docutils literal notranslate"><span class="pre">SensorDataset.fill_missing_gaussian()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_interpolation"><code class="docutils literal notranslate"><span class="pre">SensorDataset.fill_missing_interpolation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_kalman"><code class="docutils literal notranslate"><span class="pre">SensorDataset.fill_missing_kalman()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_model"><code class="docutils literal notranslate"><span class="pre">SensorDataset.fill_missing_model()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_ratio"><code class="docutils literal notranslate"><span class="pre">SensorDataset.fill_missing_ratio()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#owl.data.sensor_dataset.SensorDataset.fill_missing_standard"><code class="docutils literal notranslate"><span class="pre">SensorDataset.fill_missing_standard()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Open Water Lab (OWL), BIOMATH, UGent.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
